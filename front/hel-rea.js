@@ -1,20 +1,21 @@
 class Rlist extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state = {now : "red",checked:false}
+        this.state = { now: "red", checked: false }
         const items_col = this.props.items.split(",")
         let i = 0
 
         setInterval(e => {
-            i = (i + 1)%4
-            this.setState({now : items_col[2]})},1000)
+            i = (i + 1) % 4
+            this.setState({ now: items_col[2] })
+        }, 1000)
 
         this.click_hand = this.click_hand.bind(this)
     }
 
-    click_hand(e){
+    click_hand(e) {
         const new_val = !this.state.checked
-        this.setState({checked:new_val})
+        this.setState({ checked: new_val })
     }
 
 
@@ -29,11 +30,11 @@ class Rlist extends React.Component {
         )
 
         let mark = "□"
-        let bstyle = {frontWeight:"normal"}
+        let bstyle = { frontWeight: "normal" }
 
-        if(this.state.checked){
+        if (this.state.checked) {
             mark = "■"
-            bstyle = {frontWeight:"bold"}
+            bstyle = { frontWeight: "bold" }
         }
 
         let title = this.props.title
@@ -54,6 +55,6 @@ class Rlist extends React.Component {
 
 //表示する部分
 ReactDOM.render(
-    <Rlist title="col" items = "red,green,white,blue" key = "1" name = "kujira"/>,
+    <Rlist title="col" items="red,green,white,blue" key="1" name="kujira" />,
     document.getElementById("root")
 )
